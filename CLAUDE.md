@@ -30,7 +30,7 @@ The project has no test framework and no `test` script yet.
 
 ## Known data quirks (relevant when debugging)
 
-- `amount` is stored as a **string**, both in the seed data and from the form input. The totals use `reduce((sum, t) => sum + t.amount, 0)`, which joins the strings together instead of adding the numbers.
+- `amount` must be a **number**. The seed data and the add form both store numbers, and the totals call `Number(...)` while summing. If amounts were text, `+` would join the values together instead of adding them.
 - In the seed data, "Freelance Work" has category `salary` but type `expense`.
 
 ## Lint config notes
